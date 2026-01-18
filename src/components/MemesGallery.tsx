@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import meme1 from "@/assets/memes/meme-01.jpg";
-import meme2 from "@/assets/memes/meme-2.jpg";
+import meme2 from "@/assets/memes/meme-02.jpg";
 import meme3 from "@/assets/memes/meme-3.jpg";
 import meme4 from "@/assets/memes/meme-4.jpg";
 import meme5 from "@/assets/memes/meme-5.jpg";

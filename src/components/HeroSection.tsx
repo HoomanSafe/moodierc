@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.png";
-import moodiCharacter from "@/assets/moodii.jpg";
+import moodiCharacter from "@/assets/modiii.png";
 import SocialStickers from "./SocialStickers";
 
 const HeroSection = () => {
