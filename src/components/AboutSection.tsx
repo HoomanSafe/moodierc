@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import moodiCharacter from "@/assets/moodi-hero.png";
+import moodiCharacter from "@/assets/memes/about.jpg";
 
 const AboutSection = () => {
   return (

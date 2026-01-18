@@ -1,34 +1,36 @@
 import { motion } from "framer-motion";
 
-import meme1 from "@/assets/memes/meme-1.jpg";
+import meme1 from "@/assets/memes/meme-01.jpg";
 import meme2 from "@/assets/memes/meme-2.jpg";
 import meme3 from "@/assets/memes/meme-3.jpg";
 import meme4 from "@/assets/memes/meme-4.jpg";
 import meme5 from "@/assets/memes/meme-5.jpg";
 import meme6 from "@/assets/memes/meme-6.jpg";
-import meme7 from "@/assets/memes/meme-7.jpg";
+import meme7 from "@/assets/memes/meme-07.jpg";
 import meme8 from "@/assets/memes/meme-8.jpg";
 import meme9 from "@/assets/memes/meme-9.jpg";
 import meme10 from "@/assets/memes/meme-10.jpg";
 
+/* 🧩 ASYMMETRIC / MAGAZINE-STYLE LAYOUT */
 const memes = [
-  { src: meme1, rotation: -3, size: "col-span-1 row-span-1" },
-  { src: meme2, rotation: 2, size: "col-span-1 row-span-2 md:row-span-1" },
-  { src: meme3, rotation: -1, size: "col-span-1 row-span-1" },
-  { src: meme4, rotation: 4, size: "col-span-1 row-span-1" },
-  { src: meme5, rotation: -2, size: "col-span-1 row-span-1" },
-  { src: meme6, rotation: 3, size: "col-span-1 row-span-1" },
-  { src: meme7, rotation: -4, size: "col-span-1 row-span-1" },
-  { src: meme8, rotation: 1, size: "col-span-1 row-span-1" },
-  { src: meme9, rotation: -3, size: "col-span-1 row-span-1" },
-  { src: meme10, rotation: 2, size: "col-span-1 row-span-1" },
+  { src: meme1, rotation: -4, size: "col-span-2 row-span-2" }, // BIG HERO
+  { src: meme2, rotation: 3, size: "col-span-1 row-span-2" },  // TALL
+  { src: meme3, rotation: -2, size: "col-span-1 row-span-1" },
+  { src: meme4, rotation: 4, size: "col-span-1 row-span-1" },  // WAS WIDE → NOW SQUARE
+  { src: meme5, rotation: -3, size: "col-span-1 row-span-1" },
+  { src: meme6, rotation: 2, size: "col-span-1 row-span-2" },  // TALL
+  { src: meme7, rotation: -5, size: "col-span-2 row-span-2" }, // BIG
+  { src: meme8, rotation: 1, size: "col-span-1 row-span-1" },  // BASE REFERENCE
+  { src: meme9, rotation: -2, size: "col-span-1 row-span-1" }, // WAS WIDE → NOW SQUARE
+  { src: meme10, rotation: 3, size: "col-span-1 row-span-1" },
 ];
+
 
 const MemesGallery = () => {
   return (
     <section className="relative py-24 px-4 overflow-hidden bg-[#060b08]">
-
-      {/* 🌱 MANY SMALL MEME RIPPLE PARTICLES */}
+      
+      {/* 🌱 NEON RIPPLE BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none z-0 ripple-field">
         {Array.from({ length: 24 }).map((_, i) => (
           <span key={i} className="mini-ripple" />
@@ -46,21 +48,44 @@ const MemesGallery = () => {
           Memes
         </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* 🧱 ASYMMETRIC GRID */}
+        <div
+          className="
+            grid
+            grid-cols-2
+            md:grid-cols-3
+            lg:grid-cols-4
+            auto-rows-[180px]
+            md:auto-rows-[220px]
+            gap-4
+            md:gap-6
+          "
+        >
           {memes.map((meme, index) => (
             <motion.div
               key={index}
-              className={`relative overflow-hidden rounded-2xl shadow-xl ${meme.size}`}
+              className={`
+                relative overflow-hidden rounded-2xl
+                shadow-xl
+                hover:shadow-[0_0_40px_rgba(0,255,150,0.35)]
+                transition-shadow
+                ${meme.size}
+              `}
               style={{ transform: `rotate(${meme.rotation}deg)` }}
               initial={{ opacity: 0, y: 40, rotate: meme.rotation * 2 }}
               whileInView={{ opacity: 1, y: 0, rotate: meme.rotation }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{ scale: 1.08, rotate: 0, zIndex: 20 }}
+              whileHover={{
+                scale: 1.06,
+                rotate: 0,
+                y: -6,
+                zIndex: 30,
+              }}
             >
               <img
                 src={meme.src}
-                alt={`MOODI meme ${index + 1}`}
+                alt={`Meme ${index + 1}`}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -69,7 +94,7 @@ const MemesGallery = () => {
         </div>
       </div>
 
-      {/* 🎨 CSS — MANY SMALL GREEN RIPPLES */}
+      {/* 🎨 NEON RIPPLE CSS */}
       <style>{`
         .ripple-field {
           position: absolute;
@@ -78,8 +103,8 @@ const MemesGallery = () => {
 
         .mini-ripple {
           position: absolute;
-          width: 120px;
-          height: 120px;
+          width: 140px;
+          height: 140px;
           border-radius: 50%;
           background:
             repeating-radial-gradient(
@@ -94,7 +119,7 @@ const MemesGallery = () => {
           opacity: 0.6;
         }
 
-        /* RANDOM POSITIONS + TIMING */
+        /* RANDOM POSITIONS */
         .mini-ripple:nth-child(1)  { top: 10%; left: 15%; animation-duration: 14s; }
         .mini-ripple:nth-child(2)  { top: 30%; left: 70%; animation-duration: 18s; }
         .mini-ripple:nth-child(3)  { top: 55%; left: 40%; animation-duration: 22s; }
@@ -107,11 +132,6 @@ const MemesGallery = () => {
         .mini-ripple:nth-child(10) { top: 50%; left: 60%; animation-duration: 21s; }
         .mini-ripple:nth-child(11) { top: 90%; left: 40%; animation-duration: 28s; }
         .mini-ripple:nth-child(12) { top: 15%; left: 85%; animation-duration: 23s; }
-
-        /* reuse randomness */
-        .mini-ripple:nth-child(n+13) {
-          animation-duration: calc(16s + (var(--i, 1) * 2s));
-        }
 
         @keyframes miniRippleExpand {
           0% {
