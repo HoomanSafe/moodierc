@@ -4,18 +4,18 @@ const tweets = [
   {
     id: 1,
     rotation: -3,
-    username: "@cryptofrog42",
+    username: "@moodieth",
     text: "bought $MOODI and now I just... sit. Is this investing?",
-    avatar: "🐸",
-    url: "https://x.com/cryptofrog42/status/1234567890123456789",
+    avatar: "/logo.png",
+    url: "https://x.com/",
   },
   {
     id: 2,
     rotation: 4,
-    username: "@unbothered_anon",
+    username: "@moodieth",
     text: "why does this frog understand me better than my therapist",
-    avatar: "🌿",
-    url: "https://x.com/unbothered_anon/status/9876543210987654321",
+    avatar: "/logo.png",
+    url: "https://x.com/",
   },
 ];
 
@@ -51,7 +51,7 @@ const SeenOnXSection = () => {
               href={tweet.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="tilted-card max-w-sm w-full cursor-pointer"
+              className="relative tilted-card max-w-sm w-full cursor-pointer"
               style={{ "--tilt": `${tweet.rotation}deg` } as React.CSSProperties}
               initial={{ opacity: 0, y: 50, rotate: tweet.rotation * 2 }}
               whileInView={{ opacity: 1, y: 0, rotate: tweet.rotation }}
@@ -59,15 +59,23 @@ const SeenOnXSection = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -8, rotate: tweet.rotation * 0.3 }}
             >
-              {/* Paper texture feel */}
+              {/* Paper background */}
               <div className="absolute inset-0 bg-gradient-to-br from-card to-secondary/30 rounded-2xl" />
 
-              <div className="relative">
+              <div className="relative p-6">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-2xl">
-                    {tweet.avatar}
+                  {/* Avatar Image */}
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/20 bg-primary/10 shadow-sm">
+                    <motion.img
+                      src={tweet.avatar}
+                      alt={tweet.username}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.08, rotate: 2 }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                    />
                   </div>
+
                   <span className="font-body font-semibold text-foreground/80">
                     {tweet.username}
                   </span>
@@ -78,7 +86,7 @@ const SeenOnXSection = () => {
                   {tweet.text}
                 </p>
 
-                {/* Subtle pin effect */}
+                {/* Pin */}
                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary/60 shadow-lg" />
               </div>
             </motion.a>
