@@ -26,20 +26,16 @@ const memes = [
 
 const MemesGallery = () => {
   return (
-    <section className="relative py-24 px-4 overflow-hidden bg-[#050814]">
+    <section className="relative py-24 px-4 overflow-hidden bg-[#060b08]">
 
-      {/* 🌊 NEON CYBER WATER BACKGROUND */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="cyber-ripple r1" />
-        <div className="cyber-ripple r2" />
-        <div className="cyber-ripple r3" />
-        <div className="cyber-ripple r4" />
-        <div className="cyber-ripple r5" />
+      {/* 🌱 MANY SMALL MEME RIPPLE PARTICLES */}
+      <div className="absolute inset-0 pointer-events-none z-0 ripple-field">
+        {Array.from({ length: 24 }).map((_, i) => (
+          <span key={i} className="mini-ripple" />
+        ))}
       </div>
 
-      {/* CONTENT */}
       <div className="relative z-10 container mx-auto max-w-6xl">
-
         <motion.h2
           className="font-cartoon text-5xl md:text-6xl text-primary comic-shadow text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -54,17 +50,13 @@ const MemesGallery = () => {
           {memes.map((meme, index) => (
             <motion.div
               key={index}
-              className={`relative overflow-hidden rounded-2xl shadow-2xl ${meme.size}`}
+              className={`relative overflow-hidden rounded-2xl shadow-xl ${meme.size}`}
               style={{ transform: `rotate(${meme.rotation}deg)` }}
               initial={{ opacity: 0, y: 40, rotate: meme.rotation * 2 }}
               whileInView={{ opacity: 1, y: 0, rotate: meme.rotation }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{
-                scale: 1.08,
-                rotate: 0,
-                zIndex: 20,
-              }}
+              whileHover={{ scale: 1.08, rotate: 0, zIndex: 20 }}
             >
               <img
                 src={meme.src}
@@ -77,43 +69,60 @@ const MemesGallery = () => {
         </div>
       </div>
 
-      {/* 🎨 INTERNAL CSS */}
+      {/* 🎨 CSS — MANY SMALL GREEN RIPPLES */}
       <style>{`
-        .cyber-ripple {
+        .ripple-field {
           position: absolute;
-          width: 80vmax;
-          height: 80vmax;
+          inset: 0;
+        }
+
+        .mini-ripple {
+          position: absolute;
+          width: 120px;
+          height: 120px;
           border-radius: 50%;
           background:
             repeating-radial-gradient(
               circle,
-              rgba(0,255,255,0.6) 0px,
-              rgba(0,255,255,0.6) 2px,
-              rgba(0,180,255,0.25) 6px,
-              rgba(0,0,0,0) 14px
+              rgba(120,255,150,0.55) 0px,
+              rgba(120,255,150,0.55) 1.5px,
+              rgba(120,255,150,0.25) 4px,
+              rgba(0,0,0,0) 10px
             );
-          filter: blur(0.5px);
+          animation: miniRippleExpand linear infinite;
           mix-blend-mode: screen;
-          animation: cyberExpand linear infinite;
+          opacity: 0.6;
         }
 
-        /* RANDOM POSITIONS */
-        .r1 { top: -10%; left: 15%; animation-duration: 18s; }
-        .r2 { top: 40%; left: -20%; animation-duration: 26s; opacity: 0.7; }
-        .r3 { top: 60%; left: 50%; animation-duration: 32s; opacity: 0.5; }
-        .r4 { top: 10%; left: 70%; animation-duration: 22s; opacity: 0.6; }
-        .r5 { top: 75%; left: 25%; animation-duration: 36s; opacity: 0.4; }
+        /* RANDOM POSITIONS + TIMING */
+        .mini-ripple:nth-child(1)  { top: 10%; left: 15%; animation-duration: 14s; }
+        .mini-ripple:nth-child(2)  { top: 30%; left: 70%; animation-duration: 18s; }
+        .mini-ripple:nth-child(3)  { top: 55%; left: 40%; animation-duration: 22s; }
+        .mini-ripple:nth-child(4)  { top: 75%; left: 20%; animation-duration: 16s; }
+        .mini-ripple:nth-child(5)  { top: 85%; left: 65%; animation-duration: 20s; }
+        .mini-ripple:nth-child(6)  { top: 45%; left: 85%; animation-duration: 24s; }
+        .mini-ripple:nth-child(7)  { top: 5%;  left: 50%; animation-duration: 19s; }
+        .mini-ripple:nth-child(8)  { top: 65%; left: 5%;  animation-duration: 26s; }
+        .mini-ripple:nth-child(9)  { top: 20%; left: 35%; animation-duration: 17s; }
+        .mini-ripple:nth-child(10) { top: 50%; left: 60%; animation-duration: 21s; }
+        .mini-ripple:nth-child(11) { top: 90%; left: 40%; animation-duration: 28s; }
+        .mini-ripple:nth-child(12) { top: 15%; left: 85%; animation-duration: 23s; }
 
-        @keyframes cyberExpand {
+        /* reuse randomness */
+        .mini-ripple:nth-child(n+13) {
+          animation-duration: calc(16s + (var(--i, 1) * 2s));
+        }
+
+        @keyframes miniRippleExpand {
           0% {
             transform: scale(0.2);
-            opacity: 0.9;
+            opacity: 0.8;
           }
           70% {
             opacity: 0.5;
           }
           100% {
-            transform: scale(1.6);
+            transform: scale(1.4);
             opacity: 0;
           }
         }
