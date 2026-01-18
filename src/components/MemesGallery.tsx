@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 import meme1 from "@/assets/memes/meme-01.jpg";
 import meme2 from "@/assets/memes/meme-02.jpg";
-import meme3 from "@/assets/memes/meme-3.jpg";
-import meme4 from "@/assets/memes/meme-4.jpg";
-import meme5 from "@/assets/memes/meme-5.jpg";
-import meme6 from "@/assets/memes/meme-6.jpg";
+import meme3 from "@/assets/memes/about.jpg";
+import meme4 from "@/assets/moodistate.jpg";
+import meme5 from "@/assets/memes/meme-02.jpg";
+import meme6 from "@/assets/memes/meme-02.jpg";
 import meme7 from "@/assets/memes/meme-07.jpg";
-import meme8 from "@/assets/memes/meme-8.jpg";
-import meme9 from "@/assets/memes/meme-9.jpg";
-import meme10 from "@/assets/memes/meme-10.jpg";
+import meme8 from "@/assets/memes/meme-02.jpg";
+import meme9 from "@/assets/memes/meme-02.jpg";
+import meme10 from "@/assets/memes/meme-02.jpg";
 
 /* 🧩 ASYMMETRIC / MAGAZINE-STYLE LAYOUT */
 const memes = [
