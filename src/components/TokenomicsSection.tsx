@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
 
-const CONTRACT_ADDRESS = "0x1234567890abcdef1234567890abcdef12345678";
+const CONTRACT_ADDRESS = "0x00000000000000000000000000000000";
 
 const tokenomics = [
   { title: "Total Supply", value: "1,000,000,000", rotation: -3 },

@@ -7,6 +7,7 @@ const tweets = [
     username: "@cryptofrog42",
     text: "bought $MOODI and now I just... sit. Is this investing?",
     avatar: "🐸",
+    url: "https://x.com/cryptofrog42/status/1234567890123456789",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const tweets = [
     username: "@unbothered_anon",
     text: "why does this frog understand me better than my therapist",
     avatar: "🌿",
+    url: "https://x.com/unbothered_anon/status/9876543210987654321",
   },
 ];
 
@@ -44,9 +46,12 @@ const SeenOnXSection = () => {
         {/* Tweet Cards */}
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
           {tweets.map((tweet, index) => (
-            <motion.div
+            <motion.a
               key={tweet.id}
-              className="tilted-card max-w-sm w-full"
+              href={tweet.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tilted-card max-w-sm w-full cursor-pointer"
               style={{ "--tilt": `${tweet.rotation}deg` } as React.CSSProperties}
               initial={{ opacity: 0, y: 50, rotate: tweet.rotation * 2 }}
               whileInView={{ opacity: 1, y: 0, rotate: tweet.rotation }}
@@ -56,7 +61,7 @@ const SeenOnXSection = () => {
             >
               {/* Paper texture feel */}
               <div className="absolute inset-0 bg-gradient-to-br from-card to-secondary/30 rounded-2xl" />
-              
+
               <div className="relative">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
@@ -67,16 +72,16 @@ const SeenOnXSection = () => {
                     {tweet.username}
                   </span>
                 </div>
-                
+
                 {/* Tweet content */}
                 <p className="text-foreground text-lg leading-relaxed">
                   {tweet.text}
                 </p>
-                
+
                 {/* Subtle pin effect */}
                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary/60 shadow-lg" />
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

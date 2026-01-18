@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const socials = [
   {
     name: "Twitter",
-    href: "#",
+    href: "",
     rotation: -5,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
@@ -13,7 +13,7 @@ const socials = [
   },
   {
     name: "Telegram",
-    href: "#",
+    href: "",
     rotation: 3,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
@@ -23,7 +23,7 @@ const socials = [
   },
   {
     name: "DexTools",
-    href: "#",
+    href: "",
     rotation: -2,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
@@ -33,7 +33,7 @@ const socials = [
   },
   {
     name: "DexScreener",
-    href: "#",
+    href: "",
     rotation: 4,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
