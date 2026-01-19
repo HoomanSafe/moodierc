@@ -7,9 +7,9 @@ import meme4 from "@/assets/moodistate.jpg";
 import meme5 from "@/assets/memes/meme-04.jpg";
 import meme6 from "@/assets/memes/meme-05.jpg";
 import meme7 from "@/assets/memes/meme-07.jpg";
-import meme8 from "@/assets/memes/meme-02.jpg";
-import meme9 from "@/assets/memes/meme-02.jpg";
-import meme10 from "@/assets/memes/meme-02.jpg";
+import meme8 from "@/assets/memes/meme-08.jpg";
+import meme9 from "@/assets/memes/meme-09.jpg";
+import meme10 from "@/assets/memes/meme-11.jpg";
 
 /* 🧩 ASYMMETRIC / MAGAZINE-STYLE LAYOUT */
 const memes = [
