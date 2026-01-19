@@ -38,8 +38,7 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          Moodi is a tribute project inspired by the artistic style of Matt Furie. 
-          This project is not affiliated with, endorsed by, or sponsored by Matt Furie.
+          MOODI is purely a fan token and a tribute project inspired by the artistic style of Matt Furie. This project is not affiliated with, endorsed by, or sponsored by Matt Furie. As this is not financial advice, please do your own research before participating. Meme coins are highly speculative, volatile, with no intrinsic value and no expectation of financial return. Always DYOR.
         </motion.p>
 
         {/* Copyright */}
