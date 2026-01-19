@@ -7,12 +7,12 @@ const socials = [
     rotation: -5,
     icon: "/icons/x.png",
   },
-  {
+  /*{
     name: "Telegram",
     href: "https://t.me/",
     rotation: 3,
     icon: "/icons/telegram.png",
-  },
+  }*/,
   {
     name: "DexTools",
     href: "https://www.dextools.io/app/en/ether",
