@@ -38,7 +38,7 @@ const AboutSection = () => {
                 </span>
                 
                 <span className="block text-muted-foreground mt-8">
-                  Born on BSC, raised on indifference.<br />
+                  Born on HOOD, raised on indifference.<br />
                   MOODI isn't early.<br />
                   MOODI isn't late.
                 </span>
