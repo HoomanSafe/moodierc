@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const socials = [
   {
     name: "Twitter",
-    href: "https://x.com/moodi_eth",
+    href: "https://x.com/moodi_rh",
     rotation: -5,
     icon: "/icons/x.png",
   },
